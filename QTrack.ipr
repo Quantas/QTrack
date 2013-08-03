@@ -232,6 +232,20 @@
       <value />
     </option>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="quantas">
+      <words>
+        <w>datasource</w>
+        <w>jdbc</w>
+        <w>mchange</w>
+        <w>qtrack</w>
+        <w>quantasnet</w>
+        <w>servlet's</w>
+        <w>springframework</w>
+        <w>webapp</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QTrack.iml" filepath="$PROJECT_DIR$/QTrack.iml" />

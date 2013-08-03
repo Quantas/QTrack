@@ -1,15 +1,18 @@
 package com.quantasnet.qtrack.service;
 
-import com.quantasnet.qtrack.domain.repo.IssueRepo;
-import org.springframework.stereotype.Service;
+import com.quantasnet.qtrack.domain.db.Issue;
 
-import javax.annotation.Resource;
+import java.util.List;
 
-@Service
-public class IssueService
+public interface IssueService
 {
-    @Resource
-    private IssueRepo issueRepo;
+    List<Issue> findAll();
 
+    List<Issue> findTitleLike(String searchTerm);
 
+    Issue findById(long id);
+
+    Issue save(Issue issue);
+
+    void remove(Issue issue);
 }

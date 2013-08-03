@@ -2,14 +2,15 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>Environment</title>
+    <title>Issue List</title>
 </head>
 <body>
 <table>
-    <c:forEach items="${envs}" var="env">
+    <c:forEach items="${issues}" var="issue">
         <tr>
-            <td>${env.key}</td>
-            <td>${env.value}</td>
+            <td>${issue.id}</td>
+            <td>${issue.title}</td>
+            <td>${issue.desc}</td>
         </tr>
     </c:forEach>
 </table>
