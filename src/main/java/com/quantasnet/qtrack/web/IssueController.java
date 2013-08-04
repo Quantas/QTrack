@@ -45,10 +45,30 @@ public class IssueController
      * @param searchTerm Text to search for
      * @return issueList View
      */
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public String search(final Model model, @RequestParam("searchTerm") String searchTerm)
+    @RequestMapping(value = "/searchTitle", method = RequestMethod.POST)
+    public String searchTitle(final Model model, @RequestParam("searchTerm") String searchTerm)
     {
         final List<Issue> issues = issueService.findTitleLike(searchTerm);
+
+        model.addAttribute("issues", issues);
+
+        return "issueList";
+    }
+
+    @RequestMapping(value = "/searchDesc", method = RequestMethod.POST)
+    public String searchDesc(final Model model, @RequestParam("searchTerm") String searchTerm)
+    {
+        final List<Issue> issues = issueService.findDescLike(searchTerm);
+
+        model.addAttribute("issues", issues);
+
+        return "issueList";
+    }
+
+    @RequestMapping(value = "/searchAll", method = RequestMethod.GET)
+    public String searchAll(final Model model, @RequestParam("searchTerm") String searchTerm)
+    {
+        final List<Issue> issues = issueService.findBothLike(searchTerm);
 
         model.addAttribute("issues", issues);
 

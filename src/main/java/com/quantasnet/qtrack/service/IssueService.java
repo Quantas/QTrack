@@ -10,6 +10,10 @@ public interface IssueService
 
     List<Issue> findTitleLike(String searchTerm);
 
+    List<Issue> findDescLike(String searchTerm);
+
+    List<Issue> findBothLike(String searchTerm);
+
     Issue findById(long id);
 
     Issue save(Issue issue);

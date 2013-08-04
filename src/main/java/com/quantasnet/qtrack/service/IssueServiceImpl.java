@@ -28,6 +28,20 @@ public class IssueServiceImpl implements IssueService
     }
 
     @Override
+    public List<Issue> findDescLike(final String searchTerm)
+    {
+        return issueRepo.findByDescLike('%' + searchTerm + '%');
+    }
+
+    @Override
+    public List<Issue> findBothLike(final String searchTerm)
+    {
+        final String wildcardSearch = '%' + searchTerm + '%';
+
+        return issueRepo.findByTitleLikeOrDescLike(wildcardSearch, wildcardSearch);
+    }
+
+    @Override
     public Issue findById(final long id)
     {
         return issueRepo.findOne(id);

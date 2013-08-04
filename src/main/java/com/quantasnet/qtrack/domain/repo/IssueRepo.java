@@ -11,4 +11,6 @@ import java.util.List;
 public interface IssueRepo extends JpaRepository<Issue, Long>
 {
     List<Issue> findByTitleLike(String searchTerm);
+    List<Issue> findByDescLike(String searchTerm);
+    List<Issue> findByTitleLikeOrDescLike(String title, String desc);
 }

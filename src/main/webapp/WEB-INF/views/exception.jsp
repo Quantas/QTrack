@@ -2,7 +2,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>QTrack | Error Occured</title>
+    <title>QTrack | Error Occurred</title>
 </head>
 <body>
     Sorry the feature you tried to use is not yet available - ${name}
