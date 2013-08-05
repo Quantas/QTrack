@@ -11,6 +11,7 @@
             <td>${issue.id}</td>
             <td>${issue.title}</td>
             <td>${issue.desc}</td>
+            <td>${issue.project.projectTag}</td>
         </tr>
     </c:forEach>
 </table>
