@@ -86,6 +86,23 @@
   <component name="CopyrightManager" default="">
     <module2copyright />
   </component>
+  <component name="DataSourceManagerImpl" format="xml" hash="4218742594">
+    <data-source source="LOCAL" name="QTrack" read-only="true" uuid="867c42dd-39fb-4b48-afde-abde2178fbb4">
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost/qtrack</jdbc-url>
+      <user-name>qtrack</user-name>
+      <user-password>dfdbdfdedfd8dfcbdfc9dfc1</user-password>
+      <libraries>
+        <library>
+          <url>jar://C:/tools/mysql/mysql-connector-java-5.1.26-bin.jar!/</url>
+        </library>
+        <library>
+          <url>file://C:/tools/mysql/mysql-connector-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>

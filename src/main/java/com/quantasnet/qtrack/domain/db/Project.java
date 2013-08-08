@@ -25,11 +25,6 @@ public class Project
     @Column(name = "project_tag")
     private String projectTag;
 
-/*
-    @OneToMany(targetEntity = Issue.class, mappedBy = "project")
-    private List<Issue> issues;
-*/
-
     public long getId()
     {
         return id;
@@ -69,14 +64,4 @@ public class Project
     {
         this.projectTag = projectTag;
     }
-
-    /*public List<Issue> getIssues()
-    {
-        return issues;
-    }
-
-    public void setIssues(List<Issue> issues)
-    {
-        this.issues = issues;
-    }*/
 }
