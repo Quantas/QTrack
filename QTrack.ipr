@@ -86,23 +86,6 @@
   <component name="CopyrightManager" default="">
     <module2copyright />
   </component>
-  <component name="DataSourceManagerImpl" format="xml" hash="4218742594">
-    <data-source source="LOCAL" name="QTrack" read-only="true" uuid="867c42dd-39fb-4b48-afde-abde2178fbb4">
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost/qtrack</jdbc-url>
-      <user-name>qtrack</user-name>
-      <user-password>dfdbdfdedfd8dfcbdfc9dfc1</user-password>
-      <libraries>
-        <library>
-          <url>jar://C:/tools/mysql/mysql-connector-java-5.1.26-bin.jar!/</url>
-        </library>
-        <library>
-          <url>file://C:/tools/mysql/mysql-connector-license.txt</url>
-        </library>
-      </libraries>
-    </data-source>
-  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -272,8 +255,41 @@
       <module fileurl="file://$PROJECT_DIR$/QTrack.iml" filepath="$PROJECT_DIR$/QTrack.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Run QTrack" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="tomcat:run" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
