@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:context="http://www.springframework.org/schema/context"
-             xmlns:security="http://www.springframework.org/schema/security"
-             xmlns:mvc="http://www.springframework.org/schema/mvc"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!-- Enables @Secured -->
     <security:global-method-security secured-annotations="enabled" />
 
+    <!-- Enables @Controller -->
     <mvc:annotation-driven />
+
+    <!-- Enables @Aspect -->
+    <aop:aspectj-autoproxy />
+
+    <!-- Automatically finds components -->
+    <context:component-scan base-package="com.quantasnet.qtrack" />
 
     <mvc:resources mapping="/static/**" location="/static/" />
 
@@ -28,8 +36,6 @@
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
     </bean>
-
-    <context:component-scan base-package="com.quantasnet.qtrack" />
 
     <import resource="qtrack-ds.xml" />
 

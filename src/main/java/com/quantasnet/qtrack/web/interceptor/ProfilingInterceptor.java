@@ -3,6 +3,7 @@ package com.quantasnet.qtrack.web.interceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.profiler.Profiler;
+import org.slf4j.profiler.ProfilerRegistry;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -18,7 +19,11 @@ public class ProfilingInterceptor extends HandlerInterceptorAdapter
     {
         Profiler profiler = new Profiler("Web");
         profiler.setLogger(logger);
-        profiler.start("MVC - " + request.getServletPath());
+
+        ProfilerRegistry profilerRegistry = ProfilerRegistry.getThreadContextInstance();
+        profiler.registerWith(profilerRegistry);
+
+        profiler.startNested("MVC - " + request.getServletPath());
 
         request.setAttribute("profiler", profiler);
 

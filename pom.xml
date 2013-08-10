@@ -44,6 +44,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Dependency Versions -->
+        <aspectJVersion>1.7.3</aspectJVersion>
         <c3p0Version>0.9.1.2</c3p0Version>
         <hibernateVersion>4.2.4.Final</hibernateVersion>
         <injectVersion>1</injectVersion>
@@ -102,6 +103,18 @@
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
             <version>${springSecurityOAuth2Version}</version>
+        </dependency>
+
+        <!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectJVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectJVersion}</version>
         </dependency>
 
         <!-- Database pooling -->
