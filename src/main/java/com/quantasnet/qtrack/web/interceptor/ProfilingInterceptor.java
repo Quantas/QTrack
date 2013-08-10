@@ -1,31 +1,28 @@
 package com.quantasnet.qtrack.web.interceptor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.profiler.Profiler;
-import org.slf4j.profiler.ProfilerRegistry;
+import com.quantasnet.qtrack.profile.Profiler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * This is a Spring MVC Method Interceptor.
+ * It starts a profiler and profiles the entire call stack through the application.
+ *
+ * @author quantas
+ */
 public class ProfilingInterceptor extends HandlerInterceptorAdapter
 {
-    private final Logger logger = LoggerFactory.getLogger(ProfilingInterceptor.class);
+    @Autowired
+    private Profiler profiler;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
-        Profiler profiler = new Profiler("Web");
-        profiler.setLogger(logger);
-
-        ProfilerRegistry profilerRegistry = ProfilerRegistry.getThreadContextInstance();
-        profiler.registerWith(profilerRegistry);
-
-        profiler.startNested("MVC - " + request.getServletPath());
-
-        request.setAttribute("profiler", profiler);
+        profiler.start(request.getServletPath());
 
         return true;
     }
@@ -33,8 +30,7 @@ public class ProfilingInterceptor extends HandlerInterceptorAdapter
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception
     {
-        Profiler profiler = (Profiler)request.getAttribute("profiler");
-
-        profiler.stop().log();
+        profiler.stop();
+        profiler.log();
     }
 }

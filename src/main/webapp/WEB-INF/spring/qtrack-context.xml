@@ -18,13 +18,13 @@
     <!-- Enables @Aspect -->
     <aop:aspectj-autoproxy />
 
-    <!-- Automatically finds components -->
+    <!-- Automatically find components -->
     <context:component-scan base-package="com.quantasnet.qtrack" />
 
     <mvc:resources mapping="/static/**" location="/static/" />
 
+    <!-- These interceptors are called before/after MVC web methods -->
     <mvc:interceptors>
-        <!-- Profiling interceptor configuration, comment out to disable -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="com.quantasnet.qtrack.web.interceptor.ProfilingInterceptor" />
@@ -37,6 +37,7 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- Include our DB context -->
     <import resource="qtrack-ds.xml" />
 
 </beans>
