@@ -2,6 +2,7 @@ package com.quantasnet.qtrack.profile;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.profiler.ProfilerRegistry;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,6 +20,10 @@ public class ProfilerImpl implements Profiler
         {
             final org.slf4j.profiler.Profiler profilerInst = new org.slf4j.profiler.Profiler(WEB_PROFILER);
             profilerInst.setLogger(LOG);
+
+            final ProfilerRegistry registry = ProfilerRegistry.getThreadContextInstance();
+            profilerInst.registerWith(registry);
+
             profiler.set(profilerInst);
         }
 
@@ -37,12 +42,6 @@ public class ProfilerImpl implements Profiler
     public void start(String profile)
     {
         getThreadLocalProfiler().start(profile);
-    }
-
-    @Override
-    public void startNested(String profile)
-    {
-        getThreadLocalProfiler().startNested(profile);
     }
 
     @Override

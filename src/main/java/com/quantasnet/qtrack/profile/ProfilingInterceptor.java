@@ -1,6 +1,5 @@
-package com.quantasnet.qtrack.web.interceptor;
+package com.quantasnet.qtrack.profile;
 
-import com.quantasnet.qtrack.profile.Profiler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

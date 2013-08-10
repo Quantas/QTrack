@@ -27,7 +27,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.quantasnet.qtrack.web.interceptor.ProfilingInterceptor" />
+            <bean class="com.quantasnet.qtrack.profile.ProfilingInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 

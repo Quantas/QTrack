@@ -14,8 +14,6 @@ public interface Profiler
 {
     void start(String profile);
 
-    void startNested(String profile);
-
     void stop();
 
     void log();

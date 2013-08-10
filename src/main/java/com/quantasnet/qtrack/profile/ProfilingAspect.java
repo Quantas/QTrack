@@ -1,6 +1,5 @@
-package com.quantasnet.qtrack.service.aspect;
+package com.quantasnet.qtrack.profile;
 
-import com.quantasnet.qtrack.profile.Profiler;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -16,21 +15,17 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-public class ServiceProfilingAspect
+public class ProfilingAspect
 {
     @Autowired
     private Profiler profiler;
 
-    @Around("execution(* com.quantasnet.qtrack.service.*.*(..))")
-    public Object profileService(ProceedingJoinPoint joinPoint) throws Throwable
+    @Around("execution(* com.quantasnet.qtrack.service.*.*(..)) || execution(* com.quantasnet.qtrack.domain.repo.*.*(..))")
+    public Object profile(ProceedingJoinPoint joinPoint) throws Throwable
     {
         final Signature signature = joinPoint.getSignature();
-        profiler.startNested(signature.getDeclaringType().getSimpleName() + '.' + signature.getName());
+        profiler.start(signature.getDeclaringType().getSimpleName() + '.' + signature.getName());
 
-        final Object obj = joinPoint.proceed();
-
-        profiler.stop();
-
-        return obj;
+        return joinPoint.proceed();
     }
 }
