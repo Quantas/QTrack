@@ -5,7 +5,8 @@
     <title>QTrack | Project List</title>
 </head>
 <body>
-<table>
+<%@include file="header.jsp"%>
+<table border="1" style="border-collapse:collapse">
     <c:forEach items="${projects}" var="project">
         <tr>
             <td>${project.projectTag}</td>

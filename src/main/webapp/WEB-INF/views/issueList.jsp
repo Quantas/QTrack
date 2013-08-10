@@ -5,6 +5,7 @@
     <title>Issue List</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <table>
     <c:forEach items="${issues}" var="issue">
         <tr>

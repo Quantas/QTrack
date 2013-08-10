@@ -40,7 +40,7 @@
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.2" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.2" />
             <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.2" />
-            <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.3.Final" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.4.Final" />
             <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
             <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.GA" />
             <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
@@ -48,10 +48,12 @@
             <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
             <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" />
             <element id="library" level="project" name="Maven: org.javassist:javassist:3.15.0-GA" />
-            <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.2.3.Final" />
-            <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:4.2.3.Final" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.2.4.Final" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:4.2.4.Final" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.4.3" />
             <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.26" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-ext:1.7.5" />
+            <element id="library" level="project" name="Maven: ch.qos.cal10n:cal10n-api:0.7.4" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.0.13" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.0.13" />
             <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
@@ -266,32 +268,6 @@
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="Check Updated Libs" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="versions:display-property-updates" />
-              </list>
-            </option>
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="Run QTrack" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -322,6 +298,32 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Check Updated Libs" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="versions:display-property-updates" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -361,6 +363,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: ch.qos.cal10n:cal10n-api:0.7.4">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/ch/qos/cal10n/cal10n-api/0.7.4/cal10n-api-0.7.4.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/ch/qos/cal10n/cal10n-api/0.7.4/cal10n-api-0.7.4-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/ch/qos/cal10n/cal10n-api/0.7.4/cal10n-api-0.7.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: ch.qos.logback:logback-classic:1.0.13">
@@ -550,37 +563,37 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.hibernate:hibernate-core:4.2.3.Final">
+    <library name="Maven: org.hibernate:hibernate-core:4.2.4.Final">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.3.Final/hibernate-core-4.2.3.Final.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.4.Final/hibernate-core-4.2.4.Final.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.3.Final/hibernate-core-4.2.3.Final-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.4.Final/hibernate-core-4.2.4.Final-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.3.Final/hibernate-core-4.2.3.Final-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.4.Final/hibernate-core-4.2.4.Final-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.hibernate:hibernate-ehcache:4.2.3.Final">
+    <library name="Maven: org.hibernate:hibernate-ehcache:4.2.4.Final">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.3.Final/hibernate-ehcache-4.2.3.Final.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.4.Final/hibernate-ehcache-4.2.4.Final.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.3.Final/hibernate-ehcache-4.2.3.Final-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.4.Final/hibernate-ehcache-4.2.4.Final-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.3.Final/hibernate-ehcache-4.2.3.Final-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-ehcache/4.2.4.Final/hibernate-ehcache-4.2.4.Final-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.hibernate:hibernate-entitymanager:4.2.3.Final">
+    <library name="Maven: org.hibernate:hibernate-entitymanager:4.2.4.Final">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.3.Final/hibernate-entitymanager-4.2.3.Final.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.4.Final/hibernate-entitymanager-4.2.4.Final.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.3.Final/hibernate-entitymanager-4.2.3.Final-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.4.Final/hibernate-entitymanager-4.2.4.Final-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.3.Final/hibernate-entitymanager-4.2.3.Final-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/4.2.4.Final/hibernate-entitymanager-4.2.4.Final-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.javassist:javassist:3.15.0-GA">
@@ -636,6 +649,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-ext:1.7.5">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-ext/1.7.5/slf4j-ext-1.7.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-ext/1.7.5/slf4j-ext-1.7.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-ext/1.7.5/slf4j-ext-1.7.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.data:spring-data-commons:1.5.2.RELEASE">

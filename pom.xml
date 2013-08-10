@@ -45,7 +45,7 @@
 
         <!-- Dependency Versions -->
         <c3p0Version>0.9.1.2</c3p0Version>
-        <hibernateVersion>4.2.3.Final</hibernateVersion>
+        <hibernateVersion>4.2.4.Final</hibernateVersion>
         <injectVersion>1</injectVersion>
         <jspVersion>2.1</jspVersion>
         <jstlVersion>1.2</jstlVersion>
@@ -139,6 +139,11 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-ext</artifactId>
             <version>${slf4jVersion}</version>
         </dependency>
         <dependency>

@@ -1,4 +1,4 @@
-package com.quantasnet.qtrack.web;
+package com.quantasnet.qtrack.web.controller;
 
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.service.IssueService;
