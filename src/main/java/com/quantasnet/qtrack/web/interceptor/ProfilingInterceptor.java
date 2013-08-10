@@ -30,6 +30,6 @@ public class ProfilingInterceptor extends HandlerInterceptorAdapter
     {
         Profiler profiler = (Profiler)request.getAttribute("profiler");
 
-        profiler.stop().print();
+        profiler.stop().log();
     }
 }
