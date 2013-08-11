@@ -35,9 +35,7 @@ public class ProjectController extends ControllerBase
 
         modelAndView.addObject("projects", projects);
 
-        modelAndView.setViewName("projectList");
-
-        return modelAndView;
+        return populateModelAndView(modelAndView, "projectList", "All Projects");
     }
 
     @RequestMapping("/add")
@@ -46,9 +44,7 @@ public class ProjectController extends ControllerBase
     {
         modelAndView.addObject("project", new Project());
 
-        modelAndView.setViewName("projectForm");
-
-        return modelAndView;
+        return populateModelAndView(modelAndView, "projectForm", "New Project");
     }
 
     @RequestMapping("/edit/{projectId}")
@@ -59,9 +55,7 @@ public class ProjectController extends ControllerBase
 
         modelAndView.addObject("project", project);
 
-        modelAndView.setViewName("projectForm");
-
-        return modelAndView;
+        return populateModelAndView(modelAndView, "projectForm", "Editing - " + project.getProjectName());
     }
 
     @RequestMapping("/delete/{projectId}")

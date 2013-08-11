@@ -1,12 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-    <title>QTrack | Project List</title>
-</head>
-<body>
-<%@include file="header.jsp"%>
-<div id="error">${error}</div>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<c:if test="${error != null}">
+<div id="error">${error}</div><br />
+</c:if>
 <table border="1" style="border-collapse:collapse">
     <c:forEach items="${projects}" var="project">
         <tr>
@@ -19,5 +16,3 @@
     </c:forEach>
 </table>
 <a href="${contextPath}/project/add">Add</a>
-</body>
-</html>

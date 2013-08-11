@@ -17,9 +17,8 @@ public class ExceptionAdviceController extends ControllerBase
     private ModelAndView errorModelAndView(Exception ex)
     {
         final ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("exception");
         modelAndView.addObject("name", ex.getClass().getSimpleName());
 
-        return modelAndView;
+        return populateModelAndView(modelAndView, "exception", "Exception");
     }
 }

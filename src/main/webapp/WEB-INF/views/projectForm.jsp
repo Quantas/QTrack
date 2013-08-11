@@ -1,12 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
-<html>
-<head>
-    <title>QTrack | Project List</title>
-</head>
-<body>
-<%@include file="header.jsp"%>
 <form:form method="POST" modelAttribute="project" action="${pageContext.request.contextPath}/project/save">
     <form:hidden path="id" />
     <table>
@@ -30,6 +23,3 @@
         </tbody>
     </table>
 </form:form>
-
-</body>
-</html>

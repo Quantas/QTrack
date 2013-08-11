@@ -1,11 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-    <title>Issue List</title>
-</head>
-<body>
-<%@include file="header.jsp"%>
 <table>
     <c:forEach items="${issues}" var="issue">
         <tr>
@@ -16,5 +9,3 @@
         </tr>
     </c:forEach>
 </table>
-</body>
-</html>
