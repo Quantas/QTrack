@@ -13,4 +13,6 @@ public interface ProjectService
     Project save(Project project);
 
     void remove(Project project);
+
+    void remove(long projectId);
 }

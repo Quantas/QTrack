@@ -38,4 +38,10 @@ public class ProjectServiceImpl implements ProjectService
     {
         projectRepo.delete(project);
     }
+
+    @Override
+    public void remove(long projectId)
+    {
+        projectRepo.delete(projectId);
+    }
 }

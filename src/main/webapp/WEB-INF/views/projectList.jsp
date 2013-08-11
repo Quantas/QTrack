@@ -12,8 +12,11 @@
             <td>${project.projectTag}</td>
             <td>${project.projectName}</td>
             <td>${project.projectDesc}</td>
+            <td><a href="${contextPath}/project/edit/${project.id}">Edit</a></td>
+            <td><a href="${contextPath}/project/delete/${project.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
+<a href="${contextPath}/project/add">Add</a>
 </body>
 </html>
