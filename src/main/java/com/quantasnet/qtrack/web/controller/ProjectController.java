@@ -1,5 +1,6 @@
 package com.quantasnet.qtrack.web.controller;
 
+import com.quantasnet.qtrack.domain.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
 import com.quantasnet.qtrack.service.ProjectService;
 import org.springframework.security.access.annotation.Secured;
@@ -9,13 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
 @RequestMapping("/project/**")
-public class ProjectController
+public class ProjectController extends ControllerBase
 {
     @Resource
     private ProjectService projectService;
@@ -64,11 +66,24 @@ public class ProjectController
 
     @RequestMapping("/delete/{projectId}")
     @Secured("ROLE_USER")
-    public String delete(@PathVariable long projectId)
+    public ModelAndView delete(@PathVariable long projectId, final RedirectAttributes redirectAttributes)
     {
-        projectService.remove(projectId);
+        final ModelAndView modelAndView = new ModelAndView("redirect:/project/all");
 
-        return "redirect:/project/all";
+        try
+        {
+            projectService.remove(projectId);
+        }
+        catch(DeleteException de)
+        {
+            final String message = de.getMessage();
+
+            redirectAttributes.addFlashAttribute("error", message);
+
+            LOG.error(message);
+        }
+
+        return modelAndView;
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

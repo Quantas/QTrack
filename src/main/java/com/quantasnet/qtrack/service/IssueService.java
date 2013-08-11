@@ -8,6 +8,8 @@ public interface IssueService
 {
     List<Issue> findAll();
 
+    List<Issue> findByProject(long projectId);
+
     List<Issue> findTitleLike(String searchTerm);
 
     List<Issue> findDescLike(String searchTerm);

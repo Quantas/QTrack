@@ -22,6 +22,12 @@ public class IssueServiceImpl implements IssueService
     }
 
     @Override
+    public List<Issue> findByProject(long projectId)
+    {
+        return issueRepo.findByProject_Id(projectId);
+    }
+
+    @Override
     public List<Issue> findTitleLike(final String searchTerm)
     {
         return issueRepo.findByTitleLike('%' + searchTerm + '%');

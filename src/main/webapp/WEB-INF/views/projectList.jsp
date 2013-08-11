@@ -6,10 +6,11 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
+<div id="error">${error}</div>
 <table border="1" style="border-collapse:collapse">
     <c:forEach items="${projects}" var="project">
         <tr>
-            <td>${project.projectTag}</td>
+            <td><a href="${contextPath}/issue/project/${project.id}">${project.projectTag}</a></td>
             <td>${project.projectName}</td>
             <td>${project.projectDesc}</td>
             <td><a href="${contextPath}/project/edit/${project.id}">Edit</a></td>

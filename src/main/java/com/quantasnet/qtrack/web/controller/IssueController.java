@@ -2,13 +2,14 @@ package com.quantasnet.qtrack.web.controller;
 
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.service.IssueService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,9 +19,9 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/issue/**")
-public class IssueController
+public class IssueController extends ControllerBase
 {
-    @Autowired
+    @Resource
     private IssueService issueService;
 
     /**
@@ -32,6 +33,16 @@ public class IssueController
     public String all(final Model model)
     {
         final List<Issue> issues = issueService.findAll();
+
+        model.addAttribute("issues", issues);
+
+        return "issueList";
+    }
+
+    @RequestMapping("/project/{projectId}")
+    public String issuesByProject(final Model model, @PathVariable long projectId)
+    {
+        final List<Issue> issues = issueService.findByProject(projectId);
 
         model.addAttribute("issues", issues);
 

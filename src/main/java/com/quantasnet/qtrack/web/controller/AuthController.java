@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/auth/**")
-public class AuthController
+public class AuthController extends ControllerBase
 {
     /**
      * Handles and retrieves the login JSP page
