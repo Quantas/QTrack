@@ -10,13 +10,13 @@ import javax.persistence.Table;
 @Table(name = "project")
 public class Project extends AbstractPersistable<Long>
 {
-    @Column(name = "project_name")
+    @Column(name = "project_name", nullable = false, unique = true)
     private String projectName;
 
-    @Column(name = "project_desc")
+    @Column(name = "project_desc", nullable = false, unique = true)
     private String projectDesc;
 
-    @Column(name = "project_tag")
+    @Column(name = "project_tag", nullable = false, unique = true)
     private String projectTag;
 
     /////////////////////////////////////////////
