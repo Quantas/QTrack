@@ -1,6 +1,6 @@
 package com.quantasnet.qtrack.web.controller;
 
-import com.quantasnet.qtrack.domain.DeleteException;
+import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
 import com.quantasnet.qtrack.service.ProjectService;
 import org.springframework.security.access.annotation.Secured;

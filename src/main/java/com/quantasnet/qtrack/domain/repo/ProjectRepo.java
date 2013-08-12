@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ProjectRepo extends JpaRepository<Project, Long>
 {
-    @Query("SELECT COUNT(p.id) FROM Project p WHERE p.id = ?1")
+    @Query("SELECT COUNT(i.id) FROM Issue i WHERE i.project.id = ?1")
     long countIssues(long projectId);
 }

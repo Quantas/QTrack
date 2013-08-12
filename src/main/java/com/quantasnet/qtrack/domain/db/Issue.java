@@ -1,22 +1,16 @@
 package com.quantasnet.qtrack.domain.db;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "issue")
-public class Issue
+public class Issue extends AbstractPersistable<Long>
 {
-    @Id
-    @Column(name = "issue_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     @Column(name = "issue_title")
     private String title;
 
@@ -26,15 +20,23 @@ public class Issue
     @ManyToOne(targetEntity = Project.class)
     private Project project;
 
-    public long getId()
+    /////////////////////////////////////////////
+    // These methods required for EL stupidness
+    /////////////////////////////////////////////
+    @Override
+    public void setId(Long id)
     {
-        return id;
+        super.setId(id);
     }
 
-    public void setId(long id)
+    @Override
+    public Long getId()
     {
-        this.id = id;
+        return super.getId();
     }
+    /////////////////////////////////////////////
+    // End stupidness methods
+    /////////////////////////////////////////////
 
     public String getTitle()
     {

@@ -1,6 +1,6 @@
 package com.quantasnet.qtrack.service;
 
-import com.quantasnet.qtrack.domain.DeleteException;
+import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
 
 import java.util.List;

@@ -24,9 +24,11 @@
     <jsp:include page="header.jsp" />
 
     <div class="container">
+        <%-- Load the View here --%>
         <jsp:include page="${viewName}.jsp" />
     </div>
-    <%--<%@include file="footer.jsp"%>--%>
+
+    <%-- Include JS at the bottom for faster page loads --%>
     <script src="${contextPath}/static/js/jquery-2.0.3.min.js"></script>
     <script src="${contextPath}/static/js/bootstrap.min.js"></script>
 </body>

@@ -48,6 +48,7 @@
         <c3p0Version>0.9.1.2</c3p0Version>
         <hibernateVersion>4.2.4.Final</hibernateVersion>
         <injectVersion>1</injectVersion>
+        <jodaTimeVersion>2.2</jodaTimeVersion>
         <jspVersion>2.1</jspVersion>
         <jstlVersion>1.2</jstlVersion>
         <logbackVersion>1.0.13</logbackVersion>
@@ -120,6 +121,13 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectJVersion}</version>
+        </dependency>
+
+        <!-- Joda Time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${jodaTimeVersion}</version>
         </dependency>
 
         <!-- Database pooling -->
