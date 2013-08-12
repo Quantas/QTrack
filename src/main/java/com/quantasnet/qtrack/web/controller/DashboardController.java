@@ -1,15 +1,26 @@
 package com.quantasnet.qtrack.web.controller;
 
+import com.quantasnet.qtrack.domain.db.Project;
+import com.quantasnet.qtrack.service.ProjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 @Controller
 public class DashboardController extends ControllerBase
 {
+    @Resource
+    private ProjectService projectService;
+
     @RequestMapping(value = {"/dashboard", "/"})
-    public ModelAndView index()
+    public ModelAndView index(final ModelAndView modelAndView)
     {
-        return populateModelAndView(null, "dashboard", "Dashboard");
+        final List<Project> projects = projectService.findAll();
+        modelAndView.addObject("projects", projects);
+
+        return populateModelAndView(modelAndView, "dashboard", "Dashboard");
     }
 }

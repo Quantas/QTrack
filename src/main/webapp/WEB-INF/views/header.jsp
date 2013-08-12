@@ -14,7 +14,6 @@
             <a class="brand" href="${contextPath}/">QTrack</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li><a href="${contextPath}/">Home</a></li>
                     <li><a href="${contextPath}/project/all">Projects</a></li>
                     <li><a href="${contextPath}/issue/all">Issues</a></li>
                     <security:authorize access="isAuthenticated()">

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <c:if test="${error != null}">
     <div class="alert alert-error">
@@ -12,5 +13,13 @@
     <h2 class="form-signin-heading">Please sign in</h2>
     <input type="text" class="input-block-level" placeholder="Username" id="j_username" name="j_username">
     <input type="password" class="input-block-level" placeholder="Password" id="j_password" name="j_password">
-    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+    <button class="btn btn-large btn-primary" type="submit">Log In</button>
+    <a href="${contextPath}/auth/signup" class="btn btn-large btn">Sign Up</a>
 </form>
+
+<script>
+    window.onload = function()
+    {
+        document.getElementById("j_username").focus();
+    };
+</script>
