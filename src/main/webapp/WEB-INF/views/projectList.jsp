@@ -1,10 +1,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
+<h3>Projects</h3>
 <c:if test="${error != null}">
-<div id="error">${error}</div><br />
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>ERROR:&nbsp;</strong>${error}
+    </div>
+    <br />
 </c:if>
-<table border="1" style="border-collapse:collapse">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tag</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${projects}" var="project">
         <tr>
             <td><a href="${contextPath}/issue/project/${project.id}">${project.projectTag}</a></td>
@@ -14,5 +29,6 @@
             <td><a href="${contextPath}/project/delete/${project.id}">Delete</a></td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
-<a href="${contextPath}/project/add">Add</a>
+<a href="${contextPath}/project/add" class="btn btn-small">Add</a>

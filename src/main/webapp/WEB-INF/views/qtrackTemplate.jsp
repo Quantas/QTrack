@@ -11,13 +11,14 @@
 
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/bootstrap.min.css" media="screen" />
     <style>
-        body {
+        body
+        {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/bootstrap-responsive.css" media="screen" />
-
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/header.css" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/header.css" media="screen"/>
 </head>
 <body>
     <jsp:include page="header.jsp" />

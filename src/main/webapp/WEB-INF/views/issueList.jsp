@@ -1,11 +1,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<table>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<h3>Issues</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Project</th>
+        </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${issues}" var="issue">
         <tr>
-            <td>${issue.id}</td>
             <td>${issue.title}</td>
             <td>${issue.desc}</td>
-            <td>${issue.project.projectTag}</td>
+            <td><a href="${contextPath}/project/${issue.project.id}">${issue.project.projectTag}</a></td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
