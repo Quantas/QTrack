@@ -82,9 +82,9 @@ public class ProjectController extends ControllerBase
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @Secured("ROLE_USER")
-    public String save(@ModelAttribute Project newProject)
+    public String save(@ModelAttribute Project project)
     {
-        projectService.save(newProject);
+        projectService.save(project);
 
         return "redirect:/project/all";
     }
