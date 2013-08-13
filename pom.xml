@@ -6,7 +6,7 @@
 
     <groupId>com.quantasnet.qtrack</groupId>
     <artifactId>QTrack</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>QTrack</name>
