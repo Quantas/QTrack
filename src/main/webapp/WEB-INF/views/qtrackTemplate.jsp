@@ -4,6 +4,7 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <spring:eval var="appVersion" expression="@qprops['app.version']" />
+<spring:eval var="gitVersion" expression="@qprops['app.gitVersion'].substring(0,8)" />
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
     <title>QTrack | ${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="qtrack-version" content="${appVersion}" />
+    <meta name="qtrack-gitversion" content="${gitVersion}" />
 
     <!-- IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -25,15 +27,27 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/footer.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/bootstrap-responsive.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/header.css" media="screen"/>
 </head>
 <body>
     <jsp:include page="header.jsp" />
 
-    <div class="container">
+    <div class="container" style="min-height: 400px">
         <%-- Load the View here --%>
         <jsp:include page="${viewName}.jsp" />
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">
+                &copy;2013 QTrack&nbsp;&nbsp;Version: ${appVersion}&nbsp;&nbsp;Rev: ${gitVersion}<br />
+                Host: ${pageContext.request.remoteHost}&nbsp;&nbsp;Port: ${pageContext.request.serverPort}
+                Protocol: ${pageContext.request.protocol}&nbsp;&nbsp;Locale: ${pageContext.request.locale}<br />
+                User: ${pageContext.request.remoteUser}
+            </p>
+        </div>
     </div>
 
     <%-- Include JS at the bottom for faster page loads --%>

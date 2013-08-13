@@ -64,6 +64,7 @@
         <junitVersion>4.11</junitVersion>
 
         <!-- Plugin Versions -->
+        <buildNumberPlugin>1.2</buildNumberPlugin>
         <mavenCompilerVersion>3.1</mavenCompilerVersion>
         <mavenWarVersion>2.4</mavenWarVersion>
         <tomcatPluginVersion>2.1</tomcatPluginVersion>
@@ -236,6 +237,23 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>${buildNumberPlugin}</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
