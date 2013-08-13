@@ -1,13 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<spring:eval var="appVersion" expression="@qprops['app.version']" />
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>QTrack | ${title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="qtrack-version" content="${appVersion}" />
+
+    <!-- IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+        <script src="${contextPath}/static/js/html5shim.js"></script>
+    <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/bootstrap.min.css" media="screen" />
     <style>

@@ -66,6 +66,7 @@
         <!-- Plugin Versions -->
         <mavenCompilerVersion>3.1</mavenCompilerVersion>
         <mavenWarVersion>2.4</mavenWarVersion>
+        <tomcatPluginVersion>2.1</tomcatPluginVersion>
     </properties>
 
 
@@ -225,6 +226,15 @@
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -244,5 +254,18 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>${tomcatPluginVersion}</version>
+                    <configuration>
+                        <port>8080</port>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
