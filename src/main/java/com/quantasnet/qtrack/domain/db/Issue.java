@@ -1,6 +1,6 @@
 package com.quantasnet.qtrack.domain.db;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.data.jpa.domain.AbstractAuditable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,13 +9,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "issue")
-public class Issue extends AbstractPersistable<Long>
+public class Issue extends AbstractAuditable<User, Long>
 {
     @Column(name = "issue_title")
     private String title;
 
     @Column(name = "issue_desc")
     private String desc;
+
+    @ManyToOne(targetEntity = IssueStatus.class)
+    private IssueStatus issueStatus;
 
     @ManyToOne(targetEntity = Project.class)
     private Project project;
@@ -56,6 +59,16 @@ public class Issue extends AbstractPersistable<Long>
     public void setDesc(String desc)
     {
         this.desc = desc;
+    }
+
+    public IssueStatus getIssueStatus()
+    {
+        return issueStatus;
+    }
+
+    public void setIssueStatus(IssueStatus issueStatus)
+    {
+        this.issueStatus = issueStatus;
     }
 
     public Project getProject()

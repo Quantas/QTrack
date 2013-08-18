@@ -1,8 +1,18 @@
 package com.quantasnet.qtrack.web.controller;
 
 import com.quantasnet.qtrack.domain.db.Issue;
+import com.quantasnet.qtrack.domain.db.IssueStatus;
+import com.quantasnet.qtrack.domain.db.Project;
 import com.quantasnet.qtrack.service.IssueService;
+import com.quantasnet.qtrack.service.ProjectService;
+import com.quantasnet.qtrack.web.model.IssueStatusEditor;
+import com.quantasnet.qtrack.web.model.ProjectEditor;
+import org.joda.time.DateTime;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Front end controller for Issues
@@ -21,8 +33,67 @@ import java.util.List;
 @RequestMapping("/issue/**")
 public class IssueController extends ControllerBase
 {
+    private static final String LIST_VIEW = "issueList";
+
     @Resource
     private IssueService issueService;
+
+    @Resource
+    private ProjectService projectService;
+
+    @RequestMapping("/add")
+    @Secured("ROLE_USER")
+    public ModelAndView add(final ModelAndView modelAndView)
+    {
+        modelAndView.addObject("issue", new Issue());
+
+        return populateModelAndView(modelAndView, "issueForm", "New Issue");
+    }
+
+    @InitBinder
+    public void initBinder(final WebDataBinder webDataBinder)
+    {
+        webDataBinder.registerCustomEditor(IssueStatus.class, new IssueStatusEditor(issueService));
+        webDataBinder.registerCustomEditor(Project.class, new ProjectEditor(projectService));
+    }
+
+    @ModelAttribute("statusList")
+    public Map<Long, String> getStatusList()
+    {
+        final List<IssueStatus> issueStatusList = issueService.findAllStatusTypes();
+        final Map<Long, String> retMap = new TreeMap<Long, String>();
+
+        for (final IssueStatus issueStatus : issueStatusList)
+        {
+            retMap.put(issueStatus.getId(), issueStatus.getLevelName());
+        }
+
+        return retMap;
+    }
+
+    @ModelAttribute("projectList")
+    public Map<Long, String> getProjectList()
+    {
+        final List<Project> projectList = projectService.findAll();
+        final Map<Long, String> retMap = new TreeMap<Long, String>();
+
+        for (final Project project : projectList)
+        {
+            retMap.put(project.getId(), project.getProjectTag());
+        }
+
+        return retMap;
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @Secured("ROLE_USER")
+    public String save(@ModelAttribute Issue issue)
+    {
+        issue.setCreatedDate(DateTime.now());
+        issueService.save(issue);
+
+        return "redirect:/issue/all";
+    }
 
     /**
      * Performs a SELECT * FROM issue, completely inefficient, needs pagination
@@ -36,7 +107,7 @@ public class IssueController extends ControllerBase
 
         modelAndView.addObject("issues", issues);
 
-        return populateModelAndView(modelAndView, "issueList", "All Issues");
+        return populateModelAndView(modelAndView, LIST_VIEW, "All Issues");
     }
 
     @RequestMapping("/project/{projectId}")
@@ -46,7 +117,7 @@ public class IssueController extends ControllerBase
 
         modelAndView.addObject("issues", issues);
 
-        return populateModelAndView(modelAndView, "issueList", "Issues");
+        return populateModelAndView(modelAndView, LIST_VIEW, "Issues");
     }
 
     /**
@@ -63,7 +134,7 @@ public class IssueController extends ControllerBase
 
         modelAndView.addObject("issues", issues);
 
-        return populateModelAndView(modelAndView, "issueList", "Issues");
+        return populateModelAndView(modelAndView, LIST_VIEW, "Issues");
     }
 
     @RequestMapping(value = "/searchDesc", method = RequestMethod.POST)
@@ -73,7 +144,7 @@ public class IssueController extends ControllerBase
 
         modelAndView.addObject("issues", issues);
 
-        return populateModelAndView(modelAndView, "issueList", "Issues");
+        return populateModelAndView(modelAndView, LIST_VIEW, "Issues");
     }
 
     @RequestMapping(value = "/searchAll", method = RequestMethod.GET)
@@ -83,6 +154,6 @@ public class IssueController extends ControllerBase
 
         modelAndView.addObject("issues", issues);
 
-        return populateModelAndView(modelAndView, "issueList", "Issues");
+        return populateModelAndView(modelAndView, LIST_VIEW, "Issues");
     }
 }

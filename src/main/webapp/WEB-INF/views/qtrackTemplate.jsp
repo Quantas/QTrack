@@ -45,6 +45,10 @@
                 &copy;2013 QTrack&nbsp;&nbsp;Version: ${appVersion}&nbsp;&nbsp;Rev: ${gitVersion}<br />
                 Host: ${pageContext.request.remoteHost}&nbsp;&nbsp;Port: ${pageContext.request.serverPort}
                 Protocol: ${pageContext.request.protocol}&nbsp;&nbsp;Locale: ${pageContext.request.locale}<br />
+                Generated At: <script>
+                                var today = new Date();
+                                document.write(today.toDateString() + " " +today.toTimeString());
+                              </script><br />
                 User: ${pageContext.request.remoteUser}
             </p>
         </div>

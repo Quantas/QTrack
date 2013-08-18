@@ -1,7 +1,9 @@
 package com.quantasnet.qtrack.service;
 
 import com.quantasnet.qtrack.domain.db.Issue;
+import com.quantasnet.qtrack.domain.db.IssueStatus;
 import com.quantasnet.qtrack.domain.repo.IssueRepo;
+import com.quantasnet.qtrack.domain.repo.IssueStatusRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,10 +17,19 @@ public class IssueServiceImpl implements IssueService
     @Resource
     private IssueRepo issueRepo;
 
+    @Resource
+    private IssueStatusRepo issueStatusRepo;
+
     @Override
     public List<Issue> findAll()
     {
         return issueRepo.findAll();
+    }
+
+    @Override
+    public List<IssueStatus> findAllStatusTypes()
+    {
+        return issueStatusRepo.findAll();
     }
 
     @Override
@@ -51,6 +62,12 @@ public class IssueServiceImpl implements IssueService
     public Issue findById(final long id)
     {
         return issueRepo.findOne(id);
+    }
+
+    @Override
+    public IssueStatus findStatusById(long id)
+    {
+        return issueStatusRepo.findOne(id);
     }
 
     @Override

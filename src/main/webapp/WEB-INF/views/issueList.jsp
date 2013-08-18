@@ -20,3 +20,4 @@
     </c:forEach>
     </tbody>
 </table>
+<a href="${contextPath}/issue/add" class="btn btn-small">Add</a>
