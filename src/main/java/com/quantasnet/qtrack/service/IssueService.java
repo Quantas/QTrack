@@ -25,5 +25,7 @@ public interface IssueService
 
     Issue save(Issue issue);
 
+    IssueStatus saveStatus(IssueStatus status);
+
     void remove(Issue issue);
 }

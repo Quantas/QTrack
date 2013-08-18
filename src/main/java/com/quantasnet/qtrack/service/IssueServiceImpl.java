@@ -77,6 +77,12 @@ public class IssueServiceImpl implements IssueService
     }
 
     @Override
+    public IssueStatus saveStatus(IssueStatus status)
+    {
+        return issueStatusRepo.saveAndFlush(status);
+    }
+
+    @Override
     public void remove(Issue issue)
     {
         issueRepo.delete(issue);

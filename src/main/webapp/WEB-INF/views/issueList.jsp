@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Status</th>
             <th>Description</th>
             <th>Project</th>
         </tr>
@@ -14,6 +15,7 @@
     <c:forEach items="${issues}" var="issue">
         <tr>
             <td>${issue.title}</td>
+            <td>${issue.issueStatus.levelName}</td>
             <td>${issue.desc}</td>
             <td><a href="${contextPath}/project/${issue.project.id}">${issue.project.projectTag}</a></td>
         </tr>
