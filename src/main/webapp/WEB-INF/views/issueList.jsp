@@ -6,8 +6,9 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Status</th>
             <th>Description</th>
+            <th>Status</th>
+            <th>Creator</th>
             <th>Project</th>
         </tr>
     </thead>
@@ -15,8 +16,9 @@
     <c:forEach items="${issues}" var="issue">
         <tr>
             <td>${issue.title}</td>
-            <td>${issue.issueStatus.levelName}</td>
             <td>${issue.desc}</td>
+            <td>${issue.issueStatus.levelName}</td>
+            <td>${issue.createdBy.firstName}&nbsp;${issue.createdBy.lastName}</td>
             <td><a href="${contextPath}/project/${issue.project.id}">${issue.project.projectTag}</a></td>
         </tr>
     </c:forEach>

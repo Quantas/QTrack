@@ -39,7 +39,7 @@ public class ProjectController extends ControllerBase
     }
 
     @RequestMapping("/add")
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public ModelAndView add(final ModelAndView modelAndView)
     {
         modelAndView.addObject("project", new Project());
@@ -48,7 +48,7 @@ public class ProjectController extends ControllerBase
     }
 
     @RequestMapping("/edit/{projectId}")
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public ModelAndView edit(final ModelAndView modelAndView, @PathVariable long projectId)
     {
         final Project project = projectService.findById(projectId);
@@ -59,7 +59,7 @@ public class ProjectController extends ControllerBase
     }
 
     @RequestMapping("/delete/{projectId}")
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public ModelAndView delete(@PathVariable long projectId, final RedirectAttributes redirectAttributes)
     {
         final ModelAndView modelAndView = new ModelAndView("redirect:/project/all");
@@ -81,7 +81,7 @@ public class ProjectController extends ControllerBase
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public String save(@ModelAttribute Project project)
     {
         projectService.save(project);

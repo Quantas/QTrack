@@ -1,14 +1,20 @@
 package com.quantasnet.qtrack.domain.db;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class User extends AbstractPersistable<Long>
+public class User extends AbstractPersistable<Long> implements UserDetails
 {
     @Column(name = "user_name", nullable = false, unique = true)
     private String userName;
@@ -24,6 +30,12 @@ public class User extends AbstractPersistable<Long>
 
     @Column(name = "user_email", nullable = false)
     private String email;
+
+    @Column(name = "user_active", nullable = false)
+    private boolean active;
+
+    @OneToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
+    List<Role> roles;
 
     public String getUserName()
     {
@@ -73,5 +85,66 @@ public class User extends AbstractPersistable<Long>
     public void setEmail(String email)
     {
         this.email = email;
+    }
+
+    public boolean isActive()
+    {
+        return active;
+    }
+
+    public void setActive(boolean active)
+    {
+        this.active = active;
+    }
+
+    public List<Role> getRoles()
+    {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles)
+    {
+        this.roles = roles;
+    }
+
+    // UserDetails methods
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities()
+    {
+        return getRoles();
+    }
+
+    @Override
+    public String getUsername()
+    {
+        return getUserName();
+    }
+
+    @Override
+    public boolean isAccountNonExpired()
+    {
+        // No-op
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked()
+    {
+        // No-op
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired()
+    {
+        // No-op
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled()
+    {
+        return isActive();
     }
 }

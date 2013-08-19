@@ -14,7 +14,7 @@
     <input type="text" class="input-block-level" placeholder="Username" id="j_username" name="j_username">
     <input type="password" class="input-block-level" placeholder="Password" id="j_password" name="j_password">
     <button class="btn btn-large btn-primary" type="submit">Log In</button>
-    <a href="${contextPath}/auth/signup" class="btn btn-large btn">Sign Up</a>
+    <a href="${contextPath}/user/signup" class="btn btn-large btn">Sign Up</a>
 </form>
 
 <script>
