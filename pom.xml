@@ -49,6 +49,7 @@
         <hibernateVersion>4.2.4.Final</hibernateVersion>
         <injectVersion>1</injectVersion>
         <jodaTimeVersion>2.2</jodaTimeVersion>
+        <jodaTimeJSPVersion>1.1.1</jodaTimeJSPVersion>
         <jspVersion>2.1</jspVersion>
         <jstlVersion>1.2</jstlVersion>
         <logbackVersion>1.0.13</logbackVersion>
@@ -130,6 +131,11 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${jodaTimeVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time-jsptags</artifactId>
+            <version>${jodaTimeJSPVersion}</version>
         </dependency>
 
         <!-- Database pooling -->

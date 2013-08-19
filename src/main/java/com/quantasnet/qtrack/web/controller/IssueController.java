@@ -10,7 +10,6 @@ import com.quantasnet.qtrack.web.model.IssueStatusEditor;
 import com.quantasnet.qtrack.web.model.ProjectEditor;
 import org.joda.time.DateTime;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -91,7 +90,7 @@ public class IssueController extends ControllerBase
     @Secured("ROLE_USER")
     public String save(@ModelAttribute Issue issue)
     {
-        final User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        final User user = getCurrentUser();
 
         issue.setCreatedDate(DateTime.now());
         issue.setCreatedBy(user);

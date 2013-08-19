@@ -32,8 +32,8 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/header.css" media="screen"/>
 </head>
 <body>
-    <jsp:include page="header.jsp" />
-
+    <%@include file="header.jsp"%>
+    
     <div class="container" style="min-height: 400px">
         <%-- Load the View here --%>
         <jsp:include page="${viewName}.jsp" />
@@ -49,7 +49,7 @@
                                 var today = new Date();
                                 document.write(today.toDateString() + " " +today.toTimeString());
                               </script><br />
-                User: ${pageContext.request.remoteUser}
+                User: ${loggedInUser.userName}
             </p>
         </div>
     </div>

@@ -31,6 +31,9 @@ public class User extends AbstractPersistable<Long> implements UserDetails
     @Column(name = "user_email", nullable = false)
     private String email;
 
+    @Column(name = "user_gravatar_hash")
+    private String gravatarHash;
+
     @Column(name = "user_active", nullable = false)
     private boolean active;
 
@@ -85,6 +88,16 @@ public class User extends AbstractPersistable<Long> implements UserDetails
     public void setEmail(String email)
     {
         this.email = email;
+    }
+
+    public String getGravatarHash()
+    {
+        return gravatarHash;
+    }
+
+    public void setGravatarHash(String gravatarHash)
+    {
+        this.gravatarHash = gravatarHash;
     }
 
     public boolean isActive()

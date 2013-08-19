@@ -17,8 +17,15 @@
                     <li><a href="${contextPath}/project/all">Projects</a></li>
                     <li><a href="${contextPath}/issue/all">Issues</a></li>
                     <security:authorize access="isAuthenticated()">
-                        <li><a href="#">${user.username}</a></li>
-                        <li><a href="${contextPath}/auth/logout">Logout</a></li>
+                        <li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">${loggedInUser.userName}&nbsp;<img width="20px" src="https://www.gravatar.com/avatar/${loggedInUser.gravatarHash}?r=pg&d=identicon" />&nbsp;<b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a href="${contextPath}/user/profile">Profile</a></li>
+                                    <li><a href="${contextPath}/auth/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        </li>
                     </security:authorize>
                     <security:authorize access="!isAuthenticated()">
                         <li><a href="${contextPath}/auth/login">Login</a></li>

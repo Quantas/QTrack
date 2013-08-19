@@ -90,6 +90,7 @@ public class QTrackDBFiller implements ApplicationListener<ContextRefreshedEvent
             admin.setActive(true);
             admin.setRoles(rolesAll);
             admin.setEmail("admin@test.com");
+            admin.setGravatarHash(userService.generateGravatarHash(admin.getEmail()));
             admin.setFirstName("Admin");
             admin.setLastName("Administrator");
             admin.setUserName("admin");
@@ -100,6 +101,7 @@ public class QTrackDBFiller implements ApplicationListener<ContextRefreshedEvent
             user.setActive(true);
             user.setRoles(rolesUser);
             user.setEmail("user@test.com");
+            user.setGravatarHash(userService.generateGravatarHash(user.getEmail()));
             user.setFirstName("User");
             user.setLastName("Userton");
             user.setUserName("user");

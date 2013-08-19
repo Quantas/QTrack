@@ -71,6 +71,7 @@ public class UserController extends ControllerBase
                     }
                 }
 
+                user.setGravatarHash(userService.generateGravatarHash(user.getEmail()));
                 user.setRoles(roleList);
                 user.setActive(true);
 

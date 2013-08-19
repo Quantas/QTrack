@@ -7,4 +7,6 @@ public interface UserService
     User findByUsername(String userName);
 
     User save(User user);
+
+    String generateGravatarHash(String email);
 }
