@@ -19,7 +19,7 @@
                     <security:authorize access="isAuthenticated()">
                         <li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">${loggedInUser.userName}&nbsp;<img width="20px" src="https://www.gravatar.com/avatar/${loggedInUser.gravatarHash}?r=pg&d=identicon" />&nbsp;<b class="caret"></b></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">${loggedInUser.userName}&nbsp;<img width="20px" src="https://www.gravatar.com/avatar/${loggedInUser.gravatarHash}?r=pg&d=identicon&s=20" />&nbsp;<b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                     <li><a href="${contextPath}/user/profile">Profile</a></li>
                                     <li><a href="${contextPath}/auth/logout">Logout</a></li>
