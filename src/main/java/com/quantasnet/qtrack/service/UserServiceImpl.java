@@ -3,10 +3,12 @@ package com.quantasnet.qtrack.service;
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.UserRepo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService
 {
     @Resource
