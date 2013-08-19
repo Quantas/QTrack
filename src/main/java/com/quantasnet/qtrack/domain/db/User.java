@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +34,7 @@ public class User extends AbstractPersistable<Long> implements UserDetails
     @Column(name = "user_active", nullable = false)
     private boolean active;
 
-    @OneToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
     List<Role> roles;
 
     public String getUserName()
