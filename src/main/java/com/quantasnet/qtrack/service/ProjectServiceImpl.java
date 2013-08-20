@@ -3,6 +3,7 @@ package com.quantasnet.qtrack.service;
 import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
 import com.quantasnet.qtrack.domain.repo.ProjectRepo;
+import com.quantasnet.qtrack.service.factory.ProjectFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,9 @@ public class ProjectServiceImpl implements ProjectService
 {
     @Resource
     private ProjectRepo projectRepo;
+
+    @Resource
+    private ProjectFactory projectFactory;
 
     @Override
     public List<Project> findAll()
@@ -31,6 +35,14 @@ public class ProjectServiceImpl implements ProjectService
     @Override
     public Project save(Project project)
     {
+        return projectRepo.saveAndFlush(project);
+    }
+
+    @Override
+    public Project save(final String tag, final String name, final String desc)
+    {
+        final Project project = projectFactory.make(tag, name, desc);
+
         return projectRepo.saveAndFlush(project);
     }
 

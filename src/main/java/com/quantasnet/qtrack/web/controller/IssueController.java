@@ -3,12 +3,10 @@ package com.quantasnet.qtrack.web.controller;
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.IssueStatus;
 import com.quantasnet.qtrack.domain.db.Project;
-import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.service.IssueService;
 import com.quantasnet.qtrack.service.ProjectService;
 import com.quantasnet.qtrack.web.model.IssueStatusEditor;
 import com.quantasnet.qtrack.web.model.ProjectEditor;
-import org.joda.time.DateTime;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -90,13 +88,6 @@ public class IssueController extends ControllerBase
     @Secured("ROLE_USER")
     public String save(@ModelAttribute Issue issue)
     {
-        final User user = getCurrentUser();
-        final DateTime now = DateTime.now();
-
-        issue.setCreatedDate(now);
-        issue.setCreatedBy(user);
-        issue.setLastModifiedBy(user);
-        issue.setLastModifiedDate(now);
         issueService.save(issue);
 
         return "redirect:/issue/all";

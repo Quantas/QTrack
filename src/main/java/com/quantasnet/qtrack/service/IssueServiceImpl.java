@@ -2,9 +2,11 @@ package com.quantasnet.qtrack.service;
 
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.IssueStatus;
+import com.quantasnet.qtrack.domain.db.Project;
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.IssueRepo;
 import com.quantasnet.qtrack.domain.repo.IssueStatusRepo;
+import com.quantasnet.qtrack.service.factory.IssueFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class IssueServiceImpl implements IssueService
 
     @Resource
     private IssueStatusRepo issueStatusRepo;
+
+    @Resource
+    private IssueFactory issueFactory;
 
     @Override
     public List<Issue> findAll()
@@ -87,9 +92,19 @@ public class IssueServiceImpl implements IssueService
     }
 
     @Override
-    public Issue save(Issue issue)
+    public Issue save(final Issue issue)
     {
-        return issueRepo.saveAndFlush(issue);
+        final Issue completeIssue = issueFactory.makeFromWeb(issue);
+
+        return issueRepo.saveAndFlush(completeIssue);
+    }
+
+    @Override
+    public Issue save(final String title, final String desc, final Project project, final IssueStatus issueStatus, final User user)
+    {
+        final Issue completeIssue = issueFactory.makeWithUser(title, desc, project, issueStatus, user);
+
+        return issueRepo.saveAndFlush(completeIssue);
     }
 
     @Override
