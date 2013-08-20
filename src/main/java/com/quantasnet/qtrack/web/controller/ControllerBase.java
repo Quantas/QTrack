@@ -1,13 +1,18 @@
 package com.quantasnet.qtrack.web.controller;
 
 import com.quantasnet.qtrack.domain.db.User;
+import com.quantasnet.qtrack.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
 
 public abstract class ControllerBase
 {
+    @Resource
+    private UserService userService;
+
     protected static final String TEMPLATE = "qtrackTemplate";
 
     protected final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -34,15 +39,6 @@ public abstract class ControllerBase
 
     protected User getCurrentUser()
     {
-        final Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if(user instanceof User)
-        {
-            return (User)user;
-        }
-        else
-        {
-            return null;
-        }
+        return userService.getCurrentUser();
     }
 }

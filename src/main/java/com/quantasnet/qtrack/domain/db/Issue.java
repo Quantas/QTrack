@@ -23,6 +23,9 @@ public class Issue extends AbstractAuditable<User, Long>
     @ManyToOne(targetEntity = Project.class)
     private Project project;
 
+    @ManyToOne(targetEntity = User.class)
+    private User assignedTo;
+
     /////////////////////////////////////////////
     // These methods required for EL stupidness
     /////////////////////////////////////////////
@@ -79,5 +82,15 @@ public class Issue extends AbstractAuditable<User, Long>
     public void setProject(Project project)
     {
         this.project = project;
+    }
+
+    public User getAssignedTo()
+    {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(User assignedTo)
+    {
+        this.assignedTo = assignedTo;
     }
 }

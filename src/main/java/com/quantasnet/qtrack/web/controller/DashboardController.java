@@ -29,6 +29,9 @@ public class DashboardController extends ControllerBase
         final List<Issue> issues = issueService.findMostRecent();
         modelAndView.addObject("issues", issues);
 
+        final List<Issue> myIssues = issueService.findAssignedToMe(getCurrentUser());
+        modelAndView.addObject("myIssues", myIssues);
+
         return populateModelAndView(modelAndView, "dashboard", "Dashboard");
     }
 }

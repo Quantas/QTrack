@@ -43,6 +43,27 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <c:if test="${loggedInUser != null}">
+                <h5>My Issues</h5>
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${myIssues}" var="issue">
+                        <tr>
+                            <td>${issue.id}</td>
+                            <td>${issue.title}</td>
+                            <td>${issue.issueStatus.levelName}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ package com.quantasnet.qtrack.service;
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.UserRepo;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,21 @@ public class UserServiceImpl implements UserService
     public User findByUsername(String userName)
     {
         return userRepo.findOneByUserName(userName);
+    }
+
+    @Override
+    public User getCurrentUser()
+    {
+        final Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if(user instanceof User)
+        {
+            return (User)user;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @Override

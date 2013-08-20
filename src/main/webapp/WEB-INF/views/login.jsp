@@ -10,7 +10,7 @@
     </div>
 </c:if>
 <form class="form-signin" action="../j_spring_security_check" method="post" >
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <h2 class="form-signin-heading">QTrack Login</h2>
     <input type="text" class="input-block-level" placeholder="Username" id="j_username" name="j_username">
     <input type="password" class="input-block-level" placeholder="Password" id="j_password" name="j_password">
     <button class="btn btn-large btn-primary" type="submit">Log In</button>

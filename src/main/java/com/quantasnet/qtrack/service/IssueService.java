@@ -2,6 +2,7 @@ package com.quantasnet.qtrack.service;
 
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.IssueStatus;
+import com.quantasnet.qtrack.domain.db.User;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ public interface IssueService
     List<Issue> findBothLike(String searchTerm);
 
     List<Issue> findMostRecent();
+
+    List<Issue> findAssignedToMe(User user);
 
     Issue findById(long id);
 

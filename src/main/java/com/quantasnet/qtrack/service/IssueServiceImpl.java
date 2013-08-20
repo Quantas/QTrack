@@ -2,6 +2,7 @@ package com.quantasnet.qtrack.service;
 
 import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.IssueStatus;
+import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.IssueRepo;
 import com.quantasnet.qtrack.domain.repo.IssueStatusRepo;
 import org.springframework.data.domain.PageRequest;
@@ -77,6 +78,12 @@ public class IssueServiceImpl implements IssueService
     {
         final Pageable pageable = new PageRequest(0, 5);
         return issueRepo.findMostRecent(pageable);
+    }
+
+    @Override
+    public List<Issue> findAssignedToMe(User user)
+    {
+        return issueRepo.findByAssignedToNotNullAndAssignedTo(user);
     }
 
     @Override
