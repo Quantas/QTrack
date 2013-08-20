@@ -14,5 +14,5 @@ QTrack - README
 ## Authentication
 
 1. Currently two users exist
-     1. john/admin
-     2. jane/user
+     1. admin/admin
+     2. user/user
