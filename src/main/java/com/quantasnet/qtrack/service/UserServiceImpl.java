@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService
     {
         final Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if(user instanceof User)
+        if (user instanceof User)
         {
-            return (User)user;
+            return (User) user;
         }
         else
         {

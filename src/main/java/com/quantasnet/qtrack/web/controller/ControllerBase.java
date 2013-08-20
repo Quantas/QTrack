@@ -13,7 +13,7 @@ public abstract class ControllerBase
     @Resource
     private UserService userService;
 
-    protected static final String TEMPLATE = "qtrackTemplate";
+    private static final String TEMPLATE = "qtrackTemplate";
 
     protected final Logger LOG = LoggerFactory.getLogger(getClass());
 
@@ -21,7 +21,7 @@ public abstract class ControllerBase
     {
         ModelAndView retModelAndView = modelAndView;
 
-        if(retModelAndView == null)
+        if (retModelAndView == null)
         {
             retModelAndView = new ModelAndView(TEMPLATE);
         }

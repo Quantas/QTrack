@@ -12,5 +12,6 @@ public interface UserService
     User getCurrentUser();
 
     User save(User user);
+
     User save(String userName, String firstName, String lastName, String email, String password, List<Role> roles);
 }

@@ -41,7 +41,7 @@ public class QTrackDBFiller implements ApplicationListener<ContextRefreshedEvent
         final List<IssueStatus> statuses = issueService.findAllStatusTypes();
 
         // TODO need a better check here, but valid for now
-        if(statuses.isEmpty())
+        if (statuses.isEmpty())
         {
             log.info("Populating empty DB with default data");
 

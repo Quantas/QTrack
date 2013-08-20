@@ -25,7 +25,7 @@ public class ProjectEditor extends PropertyEditorSupport
     @Override
     public String getAsText()
     {
-        final Project project = (Project)getValue();
+        final Project project = (Project) getValue();
         return project == null ? "" : project.getProjectTag();
     }
 }

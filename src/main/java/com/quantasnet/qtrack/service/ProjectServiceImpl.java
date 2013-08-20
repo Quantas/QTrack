@@ -1,7 +1,7 @@
 package com.quantasnet.qtrack.service;
 
-import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
+import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.repo.ProjectRepo;
 import com.quantasnet.qtrack.service.factory.ProjectFactory;
 import org.springframework.stereotype.Service;
@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public void remove(long projectId)  throws DeleteException
+    public void remove(long projectId) throws DeleteException
     {
         checkCount(projectId);
 
@@ -56,7 +56,7 @@ public class ProjectServiceImpl implements ProjectService
 
     protected void checkCount(long projectId) throws DeleteException
     {
-        if(projectRepo.countIssues(projectId) > 0)
+        if (projectRepo.countIssues(projectId) > 0)
         {
             throw new DeleteException("Issues attached to this project still exist.");
         }

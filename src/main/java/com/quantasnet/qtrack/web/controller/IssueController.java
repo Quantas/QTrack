@@ -25,7 +25,7 @@ import java.util.TreeMap;
 
 /**
  * Front end controller for Issues
- * <p>
+ * <p/>
  * TODO needs pagination
  */
 @Controller
@@ -95,6 +95,7 @@ public class IssueController extends ControllerBase
 
     /**
      * Performs a SELECT * FROM issue, completely inefficient, needs pagination
+     *
      * @param modelAndView Spring MVC Model
      * @return issueList view
      */
@@ -121,8 +122,9 @@ public class IssueController extends ControllerBase
     /**
      * Performs a SELECT statement using the searchTerm in-between % characters<br />
      * This may be inefficient and should be addressed
+     *
      * @param modelAndView Spring MVC Model
-     * @param searchTerm Text to search for
+     * @param searchTerm   Text to search for
      * @return issueList View
      */
     @RequestMapping(value = "/searchTitle", method = RequestMethod.POST)

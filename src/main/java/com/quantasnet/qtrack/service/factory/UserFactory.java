@@ -43,10 +43,10 @@ public final class UserFactory
         final List<Role> roleList = new ArrayList<Role>();
         final List<Role> dbRoles = roleService.findAll();
 
-        for(final Role role : dbRoles)
+        for (final Role role : dbRoles)
         {
             // TODO get default role somewhere else
-            if(role.getRoleName().equals("ROLE_USER"))
+            if (role.getRoleName().equals("ROLE_USER"))
             {
                 roleList.add(role);
                 break;

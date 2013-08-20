@@ -1,7 +1,7 @@
 package com.quantasnet.qtrack.web.controller;
 
-import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.domain.db.Project;
+import com.quantasnet.qtrack.domain.exception.DeleteException;
 import com.quantasnet.qtrack.service.ProjectService;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -24,6 +24,7 @@ public class ProjectController extends ControllerBase
 
     /**
      * Performs a SELECT * FROM project, completely inefficient, needs pagination
+     *
      * @param modelAndView Spring MVC Model
      * @return projectList view
      */
@@ -68,7 +69,7 @@ public class ProjectController extends ControllerBase
         {
             projectService.remove(projectId);
         }
-        catch(DeleteException de)
+        catch (DeleteException de)
         {
             final String message = de.getMessage();
 

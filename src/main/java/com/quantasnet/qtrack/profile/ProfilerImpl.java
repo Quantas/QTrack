@@ -16,7 +16,7 @@ public class ProfilerImpl implements Profiler
 
     private org.slf4j.profiler.Profiler getThreadLocalProfiler()
     {
-        if(profiler.get() == null)
+        if (profiler.get() == null)
         {
             final org.slf4j.profiler.Profiler profilerInst = new org.slf4j.profiler.Profiler(WEB_PROFILER);
             profilerInst.setLogger(LOG);
@@ -32,7 +32,7 @@ public class ProfilerImpl implements Profiler
 
     private void clearProfiler()
     {
-        if(profiler.get() != null)
+        if (profiler.get() != null)
         {
             profiler.set(null);
         }

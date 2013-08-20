@@ -21,7 +21,7 @@ public class UserController extends ControllerBase
     @RequestMapping("/signup")
     public ModelAndView getSignupPage(@RequestParam(value = "error", required = false) boolean error, ModelAndView modelAndView)
     {
-        if(error)
+        if (error)
         {
             modelAndView.addObject("error", "Signup Error");
         }
@@ -36,7 +36,7 @@ public class UserController extends ControllerBase
     {
         final User user = signupUser.getUser();
 
-        if(user.getPassword().equals(signupUser.getConfirmPassword()))
+        if (user.getPassword().equals(signupUser.getConfirmPassword()))
         {
             userService.save(user);
         }

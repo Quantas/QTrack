@@ -14,8 +14,11 @@ import java.util.List;
 public interface IssueRepo extends JpaRepository<Issue, Long>
 {
     List<Issue> findByProject_Id(Long projectId);
+
     List<Issue> findByTitleLike(String searchTerm);
+
     List<Issue> findByDescLike(String searchTerm);
+
     List<Issue> findByTitleLikeOrDescLike(String title, String desc);
 
     @Query("SELECT i FROM Issue i ORDER BY i.lastModifiedDate DESC")
