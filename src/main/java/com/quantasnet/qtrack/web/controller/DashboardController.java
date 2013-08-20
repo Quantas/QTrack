@@ -1,6 +1,8 @@
 package com.quantasnet.qtrack.web.controller;
 
+import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.Project;
+import com.quantasnet.qtrack.service.IssueService;
 import com.quantasnet.qtrack.service.ProjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +17,17 @@ public class DashboardController extends ControllerBase
     @Resource
     private ProjectService projectService;
 
+    @Resource
+    private IssueService issueService;
+
     @RequestMapping(value = {"/dashboard", "/"})
     public ModelAndView index(final ModelAndView modelAndView)
     {
         final List<Project> projects = projectService.findAll();
         modelAndView.addObject("projects", projects);
+
+        final List<Issue> issues = issueService.findMostRecent();
+        modelAndView.addObject("issues", issues);
 
         return populateModelAndView(modelAndView, "dashboard", "Dashboard");
     }

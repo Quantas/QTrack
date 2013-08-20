@@ -1,17 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<h3>Welcome to the Dashboard</h3>
+<h3>Dashboard</h3>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span5">
             <h5>Projects</h5>
             <table class="table table-condensed">
                 <thead>
-                <tr>
-                    <th>Tag</th>
-                    <th>Name</th>
-                </tr>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Name</th>
+                    </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${projects}" var="project">
@@ -23,11 +23,26 @@
                 </tbody>
             </table>
         </div>
-        <div class="span2">
-            &nbsp;
-        </div>
         <div class="span6">
-            &nbsp;
+            <h5>Recent Issues</h5>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${issues}" var="issue">
+                    <tr>
+                        <td>${issue.id}</td>
+                        <td>${issue.title}</td>
+                        <td>${issue.issueStatus.levelName}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

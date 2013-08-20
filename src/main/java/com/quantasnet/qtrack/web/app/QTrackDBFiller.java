@@ -110,12 +110,15 @@ public class QTrackDBFiller implements ApplicationListener<ContextRefreshedEvent
 
             // create an issue
             final Issue issue = new Issue();
-            issue.setCreatedDate(DateTime.now());
+            final DateTime now = DateTime.now();
+            issue.setCreatedDate(now);
+            issue.setLastModifiedDate(now);
             issue.setIssueStatus(status);
             issue.setProject(project);
             issue.setTitle("Test Issue");
             issue.setDesc("A test issue");
             issue.setCreatedBy(admin);
+            issue.setLastModifiedBy(admin);
             issueService.save(issue);
         }
         else

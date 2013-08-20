@@ -19,6 +19,8 @@ public interface IssueService
 
     List<Issue> findBothLike(String searchTerm);
 
+    List<Issue> findMostRecent();
+
     Issue findById(long id);
 
     IssueStatus findStatusById(long id);

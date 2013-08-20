@@ -91,9 +91,12 @@ public class IssueController extends ControllerBase
     public String save(@ModelAttribute Issue issue)
     {
         final User user = getCurrentUser();
+        final DateTime now = DateTime.now();
 
-        issue.setCreatedDate(DateTime.now());
+        issue.setCreatedDate(now);
         issue.setCreatedBy(user);
+        issue.setLastModifiedBy(user);
+        issue.setLastModifiedDate(now);
         issueService.save(issue);
 
         return "redirect:/issue/all";

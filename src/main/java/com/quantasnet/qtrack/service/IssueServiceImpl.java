@@ -4,6 +4,8 @@ import com.quantasnet.qtrack.domain.db.Issue;
 import com.quantasnet.qtrack.domain.db.IssueStatus;
 import com.quantasnet.qtrack.domain.repo.IssueRepo;
 import com.quantasnet.qtrack.domain.repo.IssueStatusRepo;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,6 +70,13 @@ public class IssueServiceImpl implements IssueService
     public IssueStatus findStatusById(long id)
     {
         return issueStatusRepo.findOne(id);
+    }
+
+    @Override
+    public List<Issue> findMostRecent()
+    {
+        final Pageable pageable = new PageRequest(0, 5);
+        return issueRepo.findMostRecent(pageable);
     }
 
     @Override
