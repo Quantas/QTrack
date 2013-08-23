@@ -49,6 +49,7 @@
                                 var today = new Date();
                                 document.write(today.toDateString() + " " +today.toTimeString());
                               </script><br />
+                Generation Time: ${execTime}ms<br />
                 User: ${loggedInUser.userName}
             </p>
         </div>
