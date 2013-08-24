@@ -55,6 +55,6 @@ public class UserServiceImpl implements UserService
     {
         final User user = userFactory.make(userName, firstName, lastName, email, password, roles);
 
-        return save(user);
+        return userRepo.saveAndFlush(user);
     }
 }
