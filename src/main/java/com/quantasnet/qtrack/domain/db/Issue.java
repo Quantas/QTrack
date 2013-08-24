@@ -1,5 +1,7 @@
 package com.quantasnet.qtrack.domain.db;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 import javax.persistence.Column;
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "issue")
+@Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
 public class Issue extends AbstractAuditable<User, Long>
 {
     @Column(name = "issue_title")

@@ -1,5 +1,7 @@
 package com.quantasnet.qtrack.domain.db;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
+@Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
 public class Role extends AbstractPersistable<Long> implements GrantedAuthority
 {
     @Column(name = "role_name")

@@ -30,7 +30,7 @@
           p:idleConnectionTestPeriod="60"
           p:maxPoolSize="${db.maxpool}"
           p:minPoolSize="${db.minpool}"
-          p:maxStatements="50"/>
+          p:maxStatements="50" />
 
     <!-- Declare a JPA entityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -44,8 +44,13 @@
           p:showSql="false"/>
 
     <util:map id="jpaPropertyMap">
+        <entry key="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE" />
+
         <entry key="hibernate.hbm2ddl.auto" value="update"/>
         <entry key="hibernate.dialect" value="${db.dialect}"/>
+        <entry key="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+        <entry key="hibernate.cache.use_second_level_cache" value="true" />
+        <entry key="hibernate.cache.use_query_cache" value="true" />
     </util:map>
 
     <!-- Declare a transaction manager-->

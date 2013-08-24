@@ -1,5 +1,7 @@
 package com.quantasnet.qtrack.domain.db;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "issueStatus")
+@Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
 public class IssueStatus extends AbstractPersistable<Long>
 {
     @Column(name = "issue_status_name", unique = true, nullable = false)

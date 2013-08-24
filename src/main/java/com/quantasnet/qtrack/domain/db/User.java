@@ -1,5 +1,7 @@
 package com.quantasnet.qtrack.domain.db;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
+@Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
 public class User extends AbstractPersistable<Long> implements UserDetails
 {
     @Column(name = "user_name", nullable = false, unique = true)
