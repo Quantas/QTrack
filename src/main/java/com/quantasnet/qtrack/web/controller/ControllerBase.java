@@ -30,7 +30,6 @@ public abstract class ControllerBase
             retModelAndView.setViewName(TEMPLATE);
         }
 
-        retModelAndView.addObject("loggedInUser", getCurrentUser());
         retModelAndView.addObject("viewName", viewName);
         retModelAndView.addObject("title", title);
 

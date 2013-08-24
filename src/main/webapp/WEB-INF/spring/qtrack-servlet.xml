@@ -31,6 +31,10 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
+            <bean class="com.quantasnet.qtrack.web.security.SecurityInterceptor" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
             <bean class="com.quantasnet.qtrack.profile.ProfilingInterceptor" />
         </mvc:interceptor>
         <mvc:interceptor>
