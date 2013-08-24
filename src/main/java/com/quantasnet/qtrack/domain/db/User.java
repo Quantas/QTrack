@@ -31,7 +31,7 @@ public class User extends AbstractPersistable<Long> implements UserDetails
     @Column(name = "user_last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "user_email", nullable = false)
+    @Column(name = "user_email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "user_gravatar_hash")

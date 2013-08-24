@@ -27,9 +27,8 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/footer.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/qtrack.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/bootstrap-responsive.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/header.css" media="screen"/>
 </head>
 <body>
     <%@include file="header.jsp"%>

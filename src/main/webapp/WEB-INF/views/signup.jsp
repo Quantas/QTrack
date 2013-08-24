@@ -3,32 +3,44 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<form:form method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/user/save" cssClass="form-signin">
+<form:form method="POST" commandName="signupUser" action="${pageContext.request.contextPath}/user/save" cssClass="form-signin">
     <table>
         <tbody>
         <tr>
-            <td>User Name</td>
-            <td><form:input path="user.userName" /></td>
+            <td>User Name&nbsp;<span class="formError"><form:errors path="userName" /></span></td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td><form:password path="user.password" /></td>
+            <td><form:input path="userName" /></td>
         </tr>
         <tr>
-            <td>Confirm Password</td>
+            <td>Password&nbsp;<span class="formError"><form:errors path="password" /></span></td>
+        </tr>
+        <tr>
+            <td><form:password path="password" /></td>
+        </tr>
+        <tr>
+            <td>Confirm Password&nbsp;<span class="formError"><form:errors path="confirmPassword" /></span></td>
+        </tr>
+        <tr>
             <td><form:password path="confirmPassword" /></td>
         </tr>
         <tr>
-            <td>First Name</td>
-            <td><form:input path="user.firstName" /></td>
+            <td>First Name&nbsp;<span class="formError"><form:errors path="firstName" /></span></td>
         </tr>
         <tr>
-            <td>Last Name</td>
-            <td><form:input path="user.lastName" /></td>
+            <td><form:input path="firstName" /></td>
         </tr>
         <tr>
-            <td>Email Address</td>
-            <td><form:input path="user.email" /></td>
+            <td>Last Name&nbsp;<span class="formError"><form:errors path="lastName" /></span></td>
+        </tr>
+        <tr>
+            <td><form:input path="lastName" /></td>
+        </tr>
+        <tr>
+            <td>Email Address&nbsp;<span class="formError"><form:errors path="email" /></span></td>
+        </tr>
+        <tr>
+            <td><form:input path="email" /></td>
         </tr>
         <tr>
             <td><button class="btn btn-primary" type="submit">Sign Up</button></td>

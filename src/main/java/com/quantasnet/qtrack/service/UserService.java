@@ -9,6 +9,8 @@ public interface UserService
 {
     User findByUsername(String userName);
 
+    User findByEmail(String email);
+
     User getCurrentUser();
 
     User save(User user);

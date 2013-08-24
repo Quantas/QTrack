@@ -10,4 +10,7 @@ public interface UserRepo extends JpaRepository<User, Long>
 {
     @QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
     User findOneByUserName(final String userName);
+
+    @QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
+    User findOneByEmail(final String email);
 }
