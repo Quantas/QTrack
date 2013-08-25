@@ -3,6 +3,7 @@ package com.quantasnet.qtrack.service.factory;
 import com.quantasnet.qtrack.domain.db.Role;
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.service.RoleService;
+import com.quantasnet.qtrack.domain.web.SignupUser;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,18 @@ public final class UserFactory
         user.setPassword(encodePassword(password));
 
         return user;
+    }
+
+    public User make(final SignupUser signupUser)
+    {
+        final User user = new User();
+        user.setUserName(signupUser.getUserName());
+        user.setPassword(signupUser.getPassword());
+        user.setEmail(signupUser.getEmail());
+        user.setFirstName(signupUser.getFirstName());
+        user.setLastName(signupUser.getLastName());
+
+        return make(user);
     }
 
     public User make(final User user)

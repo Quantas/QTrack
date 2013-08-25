@@ -1,4 +1,4 @@
-package com.quantasnet.qtrack.web.model;
+package com.quantasnet.qtrack.domain.web;
 
 import org.hibernate.validator.constraints.Email;
 

@@ -2,7 +2,7 @@ package com.quantasnet.qtrack.web.controller;
 
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.service.UserService;
-import com.quantasnet.qtrack.web.model.SignupUser;
+import com.quantasnet.qtrack.domain.web.SignupUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -56,19 +56,13 @@ public class UserController extends ControllerBase
         saveNewUser(signupUser);
 
         final ModelAndView redirectView = populateModelAndView(null, "login", "Log In");
-        addInfoMessage(modelAndView, "Signup Successful, please login now.");
+        addInfoMessage(redirectView, "Signup Successful, please login now.");
         return redirectView;
     }
 
     private void saveNewUser(final SignupUser signupUser)
     {
-        final User webUser = new User();
-        webUser.setUserName(signupUser.getUserName());
-        webUser.setPassword(signupUser.getPassword());
-        webUser.setEmail(signupUser.getEmail());
-        webUser.setFirstName(signupUser.getFirstName());
-        webUser.setLastName(signupUser.getLastName());
-        userService.save(webUser);
+        userService.save(signupUser);
     }
 
     private void checkPasswordMatch(final SignupUser signupUser, final BindingResult result)
@@ -81,7 +75,7 @@ public class UserController extends ControllerBase
 
     private void checkExistingUserName(final SignupUser signupUser, final BindingResult result)
     {
-        final User existingUser = userService.findByUsername(signupUser.getUserName());
+        final User existingUser = userService.findByUsername(signupUser.getUserName().toLowerCase());
 
         if(existingUser != null)
         {

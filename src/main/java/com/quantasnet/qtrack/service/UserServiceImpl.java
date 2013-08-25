@@ -4,6 +4,7 @@ import com.quantasnet.qtrack.domain.db.Role;
 import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.UserRepo;
 import com.quantasnet.qtrack.service.factory.UserFactory;
+import com.quantasnet.qtrack.domain.web.SignupUser;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +55,14 @@ public class UserServiceImpl implements UserService
         final User completeUser = userFactory.make(user);
 
         return userRepo.saveAndFlush(completeUser);
+    }
+
+    @Override
+    public User save(final SignupUser signupUser)
+    {
+        final User user = userFactory.make(signupUser);
+
+        return userRepo.saveAndFlush(user);
     }
 
     @Override
