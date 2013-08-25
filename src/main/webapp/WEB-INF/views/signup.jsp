@@ -48,3 +48,10 @@
         </tbody>
     </table>
 </form:form>
+
+<script>
+    window.onload = function()
+    {
+        document.getElementById("userName").focus();
+    };
+</script>

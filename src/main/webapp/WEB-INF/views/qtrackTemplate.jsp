@@ -34,6 +34,20 @@
     <%@include file="header.jsp"%>
 
     <div class="container" style="min-height: 400px">
+        <%-- Show the errors/messages here --%>
+        <c:if test="${error != null}">
+            <div class="alert alert-error">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>ERROR:&nbsp;</strong>${error}
+            </div>
+        </c:if>
+        <c:if test="${info != null}">
+            <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>INFO:&nbsp;</strong>${info}
+            </div>
+        </c:if>
+
         <%-- Load the View here --%>
         <jsp:include page="${viewName}.jsp" />
     </div>

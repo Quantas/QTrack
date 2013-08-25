@@ -49,12 +49,15 @@ public class UserController extends ControllerBase
         if(result.hasErrors())
         {
             modelAndView.addObject(MODEL_OBJ, signupUser);
+            addErrorMessage(modelAndView, "There was an error, please see below for specifics");
             return populateModelAndView(modelAndView, SIGNUP_FORM, SIGNUP_TITLE);
         }
 
         saveNewUser(signupUser);
 
-        return new ModelAndView("redirect:/");
+        final ModelAndView redirectView = populateModelAndView(null, "login", "Log In");
+        addInfoMessage(modelAndView, "Signup Successful, please login now.");
+        return redirectView;
     }
 
     private void saveNewUser(final SignupUser signupUser)

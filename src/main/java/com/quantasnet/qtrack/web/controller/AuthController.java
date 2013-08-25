@@ -24,7 +24,7 @@ public class AuthController extends ControllerBase
         if (error)
         {
             // Assign an error message
-            modelAndView.addObject("error", "You have entered an invalid username or password!");
+            addErrorMessage(modelAndView, "You have entered an invalid username or password!");
         }
 
         return populateModelAndView(modelAndView, "login", "Login");

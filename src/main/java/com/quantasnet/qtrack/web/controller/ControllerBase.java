@@ -36,6 +36,22 @@ public abstract class ControllerBase
         return retModelAndView;
     }
 
+    protected void addInfoMessage(final ModelAndView modelAndView, final String message)
+    {
+        if(modelAndView != null)
+        {
+            modelAndView.addObject("info", message);
+        }
+    }
+
+    protected void addErrorMessage(final ModelAndView modelAndView, final String message)
+    {
+        if(modelAndView != null)
+        {
+            modelAndView.addObject("error", message);
+        }
+    }
+
     protected User getCurrentUser()
     {
         return userService.getCurrentUser();
