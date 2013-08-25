@@ -22,7 +22,7 @@
             <td>${issue.createdBy.firstName}&nbsp;${issue.createdBy.lastName}</td>
             <td>${issue.assignedTo.firstName}&nbsp;${issue.assignedTo.lastName}</td>
             <td><joda:format value="${issue.createdDate}" style="SM" /></td>
-            <td><a href="${contextPath}/project/${issue.project.id}">${issue.project.projectTag}</a></td>
+            <td><a href="${contextPath}/issue/project/${issue.project.id}">${issue.project.projectTag}</a></td>
         </tr>
     </c:forEach>
     </tbody>
