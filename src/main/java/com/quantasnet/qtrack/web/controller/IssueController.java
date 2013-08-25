@@ -90,7 +90,9 @@ public class IssueController extends ControllerBase
     {
         issueService.save(issue);
 
-        return "redirect:/issue/all";
+        final long projectId = issue.getProject().getId();
+
+        return "redirect:/issue/project/" + projectId;
     }
 
     /**
@@ -112,8 +114,10 @@ public class IssueController extends ControllerBase
     @RequestMapping("/project/{projectId}")
     public ModelAndView issuesByProject(final ModelAndView modelAndView, @PathVariable long projectId)
     {
+        final Project project = projectService.findById(projectId);
         final List<Issue> issues = issueService.findByProject(projectId);
 
+        modelAndView.addObject("project", project);
         modelAndView.addObject("issues", issues);
 
         return populateModelAndView(modelAndView, LIST_VIEW, "Issues");

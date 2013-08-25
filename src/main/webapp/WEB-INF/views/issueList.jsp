@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.joda.org/joda/time/tags" prefix="joda" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<h3>Issues</h3>
+<h3>${project.projectTag} Issues</h3>
 <table class="table">
     <thead>
         <tr>
