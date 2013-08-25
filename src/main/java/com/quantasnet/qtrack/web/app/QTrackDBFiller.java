@@ -45,34 +45,23 @@ public class QTrackDBFiller implements ApplicationListener<ContextRefreshedEvent
         {
             log.info("Populating empty DB with default data");
 
-            // create new status
-            IssueStatus status = new IssueStatus();
-            status.setLevelName("New");
-            status = issueService.saveStatus(status);
-
-            IssueStatus assigned = new IssueStatus();
-            assigned.setLevelName("Assigned");
-            issueService.saveStatus(assigned);
-
-            IssueStatus closed = new IssueStatus();
-            closed.setLevelName("Closed");
-            issueService.saveStatus(closed);
+            // create new statuses
+            final IssueStatus status = issueService.saveStatus("New");
+            issueService.saveStatus("Assigned");
+            issueService.saveStatus("Closed");
 
             // create new project
             final Project project = projectService.save("DEMO", "Demo Project", "A demo project");
 
+            // create roles
             final List<Role> rolesAll = new ArrayList<Role>();
             final List<Role> rolesUser = new ArrayList<Role>();
 
-            final Role role = new Role();
-            role.setRoleName("ROLE_USER");
-            roleService.save(role);
+            final Role role = roleService.save("ROLE_USER");
             rolesAll.add(role);
             rolesUser.add(role);
 
-            final Role adminRole = new Role();
-            adminRole.setRoleName("ROLE_ADMIN");
-            roleService.save(adminRole);
+            final Role adminRole = roleService.save("ROLE_ADMIN");
             rolesAll.add(adminRole);
 
             // create users

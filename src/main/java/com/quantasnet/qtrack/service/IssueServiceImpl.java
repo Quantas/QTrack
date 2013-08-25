@@ -7,6 +7,7 @@ import com.quantasnet.qtrack.domain.db.User;
 import com.quantasnet.qtrack.domain.repo.IssueRepo;
 import com.quantasnet.qtrack.domain.repo.IssueStatusRepo;
 import com.quantasnet.qtrack.service.factory.IssueFactory;
+import com.quantasnet.qtrack.service.factory.IssueStatusFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class IssueServiceImpl implements IssueService
 
     @Resource
     private IssueFactory issueFactory;
+
+    @Resource
+    private IssueStatusFactory issueStatusFactory;
 
     @Override
     public List<Issue> findAll()
@@ -110,6 +114,14 @@ public class IssueServiceImpl implements IssueService
     @Override
     public IssueStatus saveStatus(IssueStatus status)
     {
+        return issueStatusRepo.saveAndFlush(status);
+    }
+
+    @Override
+    public IssueStatus saveStatus(String levelName)
+    {
+        final IssueStatus status = issueStatusFactory.make(levelName);
+
         return issueStatusRepo.saveAndFlush(status);
     }
 

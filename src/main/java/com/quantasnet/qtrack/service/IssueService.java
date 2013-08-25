@@ -34,6 +34,7 @@ public interface IssueService
     Issue save(String title, String desc, Project project, IssueStatus issueStatus, User user);
 
     IssueStatus saveStatus(IssueStatus status);
+    IssueStatus saveStatus(String levelName);
 
     void remove(Issue issue);
 }
