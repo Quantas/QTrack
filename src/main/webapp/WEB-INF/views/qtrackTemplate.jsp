@@ -4,7 +4,8 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <spring:eval var="appVersion" expression="@qprops['app.version']" />
-<spring:eval var="gitVersion" expression="@qprops['app.gitVersion'].substring(0,8)" />
+<spring:eval var="gitVerRaw" expression="@qprops['app.gitVersion'].substring(0,8)" />
+<c:set var="gitVersion" value="Git${gitVerRaw != '${buildN' ? gitVerRaw : ''}" />
 
 <!DOCTYPE html>
 <html>
@@ -55,15 +56,7 @@
     <div id="footer">
         <div class="container">
             <p class="muted credit">
-                &copy;2013 QTrack&nbsp;&nbsp;Version: ${appVersion}&nbsp;&nbsp;Rev: ${gitVersion}<br />
-                Host: ${pageContext.request.remoteHost}&nbsp;&nbsp;Port: ${pageContext.request.serverPort}
-                Protocol: ${pageContext.request.protocol}&nbsp;&nbsp;Locale: ${pageContext.request.locale}<br />
-                Generated At: <script>
-                                var today = new Date();
-                                document.write(today.toDateString() + " " +today.toTimeString());
-                              </script><br />
-                Generation Time: ${execTime}ms<br />
-                User: ${loggedInUser.userName}
+                &copy;2013 QTrack&nbsp;|&nbsp;${appVersion}(${gitVersion})&nbsp;|&nbsp;${pageContext.request.remoteHost}:${pageContext.request.serverPort}&nbsp;|&nbsp;${execTime}ms
             </p>
         </div>
     </div>
