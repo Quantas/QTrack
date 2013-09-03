@@ -69,6 +69,7 @@
 
         <!-- Plugin Versions -->
         <buildNumberPlugin>1.2</buildNumberPlugin>
+        <jbossASVersion>7.4.Final</jbossASVersion>
         <mavenCompilerVersion>3.1</mavenCompilerVersion>
         <mavenWarVersion>2.4</mavenWarVersion>
         <tomcatPluginVersion>2.1</tomcatPluginVersion>
@@ -304,12 +305,14 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>${jbossASVersion}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>${tomcatPluginVersion}</version>
-                    <configuration>
-                        <port>8080</port>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
