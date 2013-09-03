@@ -5,7 +5,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <spring:eval var="appVersion" expression="@qprops['app.version']" />
 <spring:eval var="gitVerRaw" expression="@qprops['app.gitVersion'].substring(0,8)" />
-<c:set var="gitVersion" value="Git${gitVerRaw != '${buildN' ? gitVerRaw : ''}" />
+<c:set var="gitVersion" value="Git:${gitVerRaw != '${buildN' ? gitVerRaw : ''}" />
 
 <!DOCTYPE html>
 <html>
