@@ -17,6 +17,16 @@
                     <li><a href="${contextPath}/project/all">Projects</a></li>
                     <li><a href="${contextPath}/issue/all">Issues</a></li>
                     <security:authorize access="isAuthenticated()">
+                        <security:authorize ifAllGranted="ROLE_ADMIN">
+                            <li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="${contextPath}/admin/user/list">Users</a></li>
+                                    </ul>
+                                </li>
+                            </li>
+                        </security:authorize>
                         <li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">${loggedInUser.firstName}&nbsp;<img width="20px" src="https://www.gravatar.com/avatar/${loggedInUser.gravatarHash}?r=pg&d=identicon&s=20" />&nbsp;<b class="caret"></b></a>

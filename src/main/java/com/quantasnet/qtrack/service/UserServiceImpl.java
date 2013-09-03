@@ -23,6 +23,12 @@ public class UserServiceImpl implements UserService
     private UserFactory userFactory;
 
     @Override
+    public List<User> findAll()
+    {
+        return userRepo.findAll();
+    }
+
+    @Override
     public User findByUsername(String userName)
     {
         return userRepo.findOneByUserName(userName);
