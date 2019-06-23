@@ -1,7 +1,12 @@
 QTrack - README
 ===========
 
-## Environment Setup
+## Docker
+
+1. Run `docker-compose up -d --build`
+2. Navigate to http://localhost:8080/QTrack
+
+## Local/Non-Docker Environment Setup
 
 1. Make sure you have MySQL/MariaDB installed and running
 2. Execute the following SQL:

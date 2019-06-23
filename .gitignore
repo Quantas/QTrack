@@ -1,3 +1,7 @@
 /target
 *.iws
 *.ids
+.classpath
+.factorypath
+.project
+.settings/

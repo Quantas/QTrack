@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+
+  db:
+    image: mysql:5.6
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    networks:
+      - qtrack
+    environment:
+      MYSQL_USER: qtrack
+      MYSQL_PASSWORD: qtrack
+      MYSQL_DATABASE: qtrack
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+
+  web:
+    image: qtrack:latest
+    build:
+      context: .
+    restart: always
+    networks:
+      - qtrack
+    ports:
+      - 8080:8080
+    links:
+      - "db:database"
+
+networks:
+  qtrack:
+
+volumes:
+  db-data:
