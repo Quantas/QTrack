@@ -55,7 +55,7 @@
         <jspVersion>2.1</jspVersion>
         <jstlVersion>1.2</jstlVersion>
         <logbackVersion>1.0.13</logbackVersion>
-        <mysqlConnectorVersion>5.1.26</mysqlConnectorVersion>
+        <mysqlConnectorVersion>8.0.16</mysqlConnectorVersion>
         <servletVersion>2.5</servletVersion>
         <slf4jVersion>1.7.5</slf4jVersion>
         <springVersion>3.2.4.RELEASE</springVersion>
