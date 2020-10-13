@@ -65,7 +65,7 @@
 
 
         <!-- Test Dependency Versions -->
-        <junitVersion>4.11</junitVersion>
+        <junitVersion>4.13.1</junitVersion>
 
         <!-- Plugin Versions -->
         <buildNumberPlugin>1.2</buildNumberPlugin>
