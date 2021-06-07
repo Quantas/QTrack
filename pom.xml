@@ -54,7 +54,7 @@
         <jodaTimeJSPVersion>1.1.1</jodaTimeJSPVersion>
         <jspVersion>2.1</jspVersion>
         <jstlVersion>1.2</jstlVersion>
-        <logbackVersion>1.0.13</logbackVersion>
+        <logbackVersion>1.2.0</logbackVersion>
         <mysqlConnectorVersion>5.1.26</mysqlConnectorVersion>
         <servletVersion>2.5</servletVersion>
         <slf4jVersion>1.7.5</slf4jVersion>
