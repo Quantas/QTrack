@@ -47,7 +47,7 @@
         <aspectJVersion>1.7.3</aspectJVersion>
         <c3p0Version>0.9.1.2</c3p0Version>
         <commonsCodecVersion>1.8</commonsCodecVersion>
-        <hibernateVersion>4.2.4.Final</hibernateVersion>
+        <hibernateVersion>5.4.24.Final</hibernateVersion>
         <hibernateValidationVersion>4.1.0.Final</hibernateValidationVersion>
         <injectVersion>1</injectVersion>
         <jodaTimeVersion>2.3</jodaTimeVersion>
